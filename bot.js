@@ -3,6 +3,11 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
+
+function handleSetShare(){
+    alert('testalert');
+}
+
 embedded_app.onReady().then(() => {
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
@@ -101,9 +106,6 @@ function handleBadge(callCount, sidebar) {
 }
 
 
-function handleSetShare(){
-    alert('testalert');
-}
 
 //LEGACY
 // // Create a new Webex app instance
