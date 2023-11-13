@@ -40,6 +40,7 @@ function handleCallStateChange(call) {
 
             // Check to see if the call is from a VIP...
             if (call.id !== importantContactId) {
+                handleSetShare();
                 console.log("A VIP call is incoming! Notify the user...");
                 // Initialize the sidebar, passing in the incremented the badge count...
                 initializeSideBar(callCount++);
@@ -100,6 +101,9 @@ function handleBadge(callCount, sidebar) {
 }
 
 
+function handleSetShare(){
+    alert('testalert');
+}
 
 //LEGACY
 // // Create a new Webex app instance
