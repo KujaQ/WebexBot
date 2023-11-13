@@ -39,7 +39,7 @@ function handleCallStateChange(call) {
             console.log("A call has come in...");
 
             // Check to see if the call is from a VIP...
-            if (call.id === importantContactId) {
+            if (call.id !== importantContactId) {
                 console.log("A VIP call is incoming! Notify the user...");
                 // Initialize the sidebar, passing in the incremented the badge count...
                 initializeSideBar(callCount++);
