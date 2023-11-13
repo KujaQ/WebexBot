@@ -1,4 +1,4 @@
-var embedded_app = new window.webex.Application();
+var embedded_app = new window.Webex.Application();
 var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
