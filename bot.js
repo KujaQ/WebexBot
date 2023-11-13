@@ -70,36 +70,36 @@ function initializeSideBar(callCount) {
         sidebar = s;
         console.log("Show a badge on the sidebar...")
         handleBadge(callCount, sidebar);
-      })
-      .catch((error) => {
-        console.log("getSidebar() failed. Error: ", Webex.Application.ErrorCodes[error]);
-      });
-  }
-  
+    })
+        .catch((error) => {
+            console.log("getSidebar() failed. Error: ", Webex.Application.ErrorCodes[error]);
+        });
+}
 
 
-  function handleBadge(callCount, sidebar) {
+
+function handleBadge(callCount, sidebar) {
     // Make sure the sidebar is available..
     if (!sidebar) {
-      console.log("Sidebar info is not available. Error: ", Webex.Application.ErrorCodes[4]);
-      return;
+        console.log("Sidebar info is not available. Error: ", Webex.Application.ErrorCodes[4]);
+        return;
     }
-  
+
     // Initialize a badge object...
     const badge = {
-      badgeType: 'count',
-      count: callCount,
+        badgeType: 'count',
+        count: callCount,
     };
-  
+
     // Show the badge...
     sidebar.showBadge(badge).then((success) => {
         console.log("sidebar.showBadge() successful.", success);
-      }).catch((error) => {
+    }).catch((error) => {
         console.log("sidebar.showBadge() failed. Error: ", Webex.Application.ErrorCodes[error]);
-      });
-  }
+    });
+}
 
-  
+
 
 //LEGACY
 // // Create a new Webex app instance
