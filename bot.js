@@ -3,8 +3,6 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
-console.log('peter enis');
-
 embedded_app.onReady().then(() => {
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
