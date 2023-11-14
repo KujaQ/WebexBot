@@ -1,18 +1,7 @@
-"use strict";
-
-
-var embedded_app = new window.Webex.Application();
+var embedded_app = new window.webex.Application();
 var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
-
-embedded_app.onReady().then(function () {
-    console.log('App is ready. App info:', app);
-  });
-
-function handleSetShare(){
-    alert('testalert');
-}
 
 embedded_app.onReady().then(() => {
     log("onReady()", { message: "EA is ready." });
@@ -44,14 +33,14 @@ embedded_app.onReady().then(() => {
     });
 });
 
+
 function handleCallStateChange(call) {
     switch (call.state) {
         case "Started":
             console.log("A call has come in...");
 
             // Check to see if the call is from a VIP...
-            if (call.id !== importantContactId) {
-                handleSetShare();
+            if (call.id === importantContactId) {
                 console.log("A VIP call is incoming! Notify the user...");
                 // Initialize the sidebar, passing in the incremented the badge count...
                 initializeSideBar(callCount++);
@@ -89,7 +78,6 @@ function initializeSideBar(callCount) {
 }
 
 
-
 function handleBadge(callCount, sidebar) {
     // Make sure the sidebar is available..
     if (!sidebar) {
@@ -110,37 +98,3 @@ function handleBadge(callCount, sidebar) {
         console.log("sidebar.showBadge() failed. Error: ", Webex.Application.ErrorCodes[error]);
     });
 }
-
-
-
-//LEGACY
-// // Create a new Webex app instance
-// var app = new window.Webex.Application();
-
-// // Wait for onReady() promise to fulfill before using framework
-// app.onReady().then(() => {
-//     log("App ready. Instance", app);
-// }).catch((errorcode) =>  {
-//     log("Error with code: ", Webex.Application.ErrorCodes[errorcode])
-// });
-
-// // Button click handler to set share URL
-// function handleSetShare() {
-//     // Replace this with the URL of your shared page
-//     var url = "https://www.example.com/shared.html"
-//     // "Shared App" is the title of the window or tab that will be created
-//     app.setShareUrl(url, "", "Shared App").then(() => {
-//         log("Set share URL", url);
-//     }).catch((errorcode) => {
-//         log("Error: ", Webex.Application.ErrorCodes[errorcode])
-//     });
-// }
-
-// // Utility function to log app messages
-// function log(type, data) {
-//     var ul = document.getElementById("console");
-//     var li = document.createElement("li");
-//     var payload = document.createTextNode(`${type}: ${JSON.stringify(data)}`);
-//     li.appendChild(payload)
-//     ul.prepend(li);
-// }
