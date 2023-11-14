@@ -3,7 +3,7 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
-embedded_app.onReady().then(() => {
+embedded_app.onasdfReady().then(() => {
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
         embedded_app.on("sidebar:callStateChanged", (call) => {
