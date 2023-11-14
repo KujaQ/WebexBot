@@ -3,18 +3,16 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
-
-function testapi() {
-    fetch('https://2c13-2003-c4-3f06-639c-5d25-1fab-61c1-bbe9.ngrok-free.app/debug', {
+function test(){
+    fetch('https://2c13-2003-c4-3f06-639c-5d25-1fab-61c1-bbe9.ngrok-free.app/debug?testparam=testvalue', {
         method: 'POST',
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ "id": 78912 })
+        body: JSON.stringify({ name: 'user 1'})
     })
-        .then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)))
+        .then(response => response.text())
+        .then(response => console.log(JSON.stringify(response)));
 };
 
 
