@@ -1,8 +1,14 @@
+"use strict";
+
+
 var embedded_app = new window.Webex.Application();
 var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
+embedded_app.onReady().then(function () {
+    console.log('App is ready. App info:', app);
+  });
 
 function handleSetShare(){
     alert('testalert');
