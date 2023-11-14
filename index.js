@@ -3,16 +3,20 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
-fetch('https://2c13-2003-c4-3f06-639c-5d25-1fab-61c1-bbe9.ngrok-free.app/debug', {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ "id": 78912 })
-})
-    .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))
+
+function testapi() {
+    fetch('https://2c13-2003-c4-3f06-639c-5d25-1fab-61c1-bbe9.ngrok-free.app/debug', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "id": 78912 })
+    })
+        .then(response => response.json())
+        .then(response => console.log(JSON.stringify(response)))
+};
+
 
 embedded_app.onReady().then(() => {
     log("onReady()", { message: "EA is ready." });
