@@ -3,13 +3,13 @@ var sidebar;
 var callCount;
 var importantContactId = "(214) 555-1212";
 
-function test(){
-    fetch('https://2c13-2003-c4-3f06-639c-5d25-1fab-61c1-bbe9.ngrok-free.app/debug?testparam=testvalue', {
+function debug(key, value){
+    fetch(`https://ef40-2003-c4-3f06-6322-f16b-6e3e-8da5-6d6e.ngrok-free.app/debug?${key}=${value}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name: 'user 1'})
+        // body: JSON.stringify({ name: 'user 1'})
     })
         .then(response => response.text())
         .then(response => console.log(JSON.stringify(response)));
@@ -17,6 +17,7 @@ function test(){
 
 
 embedded_app.onReady().then(() => {
+    debug('onReady1', call)
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
         embedded_app.on("sidebar:callStateChanged", (call) => {
@@ -28,6 +29,7 @@ embedded_app.onReady().then(() => {
 
 
 embedded_app.onReady().then(() => {
+    debug('onReady2', call)
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
         embedded_app.on("sidebar:callStateChanged", (call) => {
@@ -48,6 +50,7 @@ embedded_app.onReady().then(() => {
 
 
 function handleCallStateChange(call) {
+    debug('handleCallStateChange', call)
     switch (call.state) {
         case "Started":
             console.log("A call has come in...");
@@ -80,6 +83,7 @@ function handleCallStateChange(call) {
 
 
 function initializeSideBar(callCount) {
+    debug('initSideBar', callCount)
     embedded_app.context.getSidebar().then((s) => {
         sidebar = s;
         console.log("Show a badge on the sidebar...")
@@ -92,6 +96,7 @@ function initializeSideBar(callCount) {
 
 
 function handleBadge(callCount, sidebar) {
+    debug('handleBadge', sidebar)
     // Make sure the sidebar is available..
     if (!sidebar) {
         console.log("Sidebar info is not available. Error: ", Webex.Application.ErrorCodes[4]);
