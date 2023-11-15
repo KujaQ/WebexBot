@@ -26,6 +26,12 @@
     log("Webex Embedded App Application Object", app);
   }
   
+
+
+
+
+
+  
   /**
    * Calls and logs the user data from `app.context.getUser()`
    */
