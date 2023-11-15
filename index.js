@@ -9,8 +9,10 @@ app.onReady().then(() => {
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen().then(() => {
 
+    log("Banan 4 scale", payload)
+
     app.on("sidebar:callStateChanged", (payload) =>
-    log("Call state changed. New call object:", payload)
+      log("Call state changed. New call object:", payload)
     );
 
     app.on("application:displayContextChanged", (payload) =>
