@@ -18,6 +18,9 @@ function parseJwtFromURLHash() {
   let params = new URLSearchParams(window.location.hash.substring(1));
   let token = params.get("id_token");
 
+
+  log("toke", token);
+
   if (!token) return;
 
   var base64Url = token.split(".")[1];
