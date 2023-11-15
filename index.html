@@ -1,10 +1,79 @@
-<head>
-</head>
-<body>
-  <p>kundenindafsdfformationen</p>
-  <button onclick="debug('button', 'indexjs')">Click me</button> 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>HOST - Embedded Apps Kitchen Sink</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <!-- Import the app's stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js"
+      defer
+    ></script>
+    <script src="./utils.js" defer></script>
+    <script src="./loginWithWebex.js" defer></script>
+    <!-- Import the app's javascript file -->
+    <script src="./index.js" defer></script>
+  </head>
 
-  <script src="https://unpkg.com/@webex/embedded-app-sdk@latest"></script> 
+  <body>
+    <div>
+      <h2>Embedded App Kitchen Sink</h2>
+      <div>
+        <p>
+          This sample application shows how to utilize the Webex Embedded App
+          Framework to build an app.
+        </p>
+        <p>
+          You're the HOST... On this page you will configure the embedded
+          application and launch it for everyone.
+          <a href="./participant.html">Click here for participant view.</a> This
+          sample application shows how to utilize the Webex Embedded App
+          Framework to build an app.
+        </p>
+        <p>
+          <a href="https://github.com/WebexSamples/EmbeddedAppSample"
+            >View source on GitHub</a
+          >.
+        </p>
+      </div>
 
-  <script src="index.js"></script>
-</body>
+      <h4>Launch the embedded app to participants</h4>
+      <div>
+        <input
+          id="shareUrl"
+          placeholder="URL to open on participant"
+          size="45"
+          value="https://webexsamples.github.io/EmbeddedAppSample/participant.html"
+        />
+      </div>
+      <div>
+        <button onclick="handleSetShare()">setShareUrl()</button>
+        <button onclick="handleClearShare()">clearShareUrl()</button>
+        <button onclick="handleSetPresentationUrl()">setPresentationUrl()</button>
+        <button onclick="handleClearPresentationUrl()">clearPresentationUrl()</button>
+      </div>
+
+      <h4>Methods</h4>
+      <button onclick="handleGetUser()">getUser()</button>
+      <button onclick="handleGetMeeting()">getMeeting()</button>
+      <button onclick="handleGetSpace()">getSpace()</button>
+      <button onclick="handleDisplayAppInfo()">Log Application Object</button>
+
+      <h4>Authorization</h4>
+      <button onclick="handleLoginWithWebex()">"Login with Webex"</button>
+      <button onclick="handleSystemBrowserOAuth()">
+        initiateSystemBrowserOAuth()
+      </button>
+
+      <h4>Logs</h4>
+    </div>
+    <div class="logs">
+      <ul id="console"></ul>
+    </div>
+  </body>
+</html>
