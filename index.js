@@ -23,6 +23,8 @@ await embedded_app.onReady().then(()=>{
 });
 };
 
+testawait();
+
 embedded_app.onReady().then(() => {
     debug('onReady1', call)
     log("onReady()", { message: "EA is ready." });
