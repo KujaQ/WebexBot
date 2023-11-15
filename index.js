@@ -21,8 +21,8 @@ function debug(key, value) {
 
 };
 
-
-embedded_app.onReady().then(() => {
+async function testcallshit(){
+await embedded_app.onReady().then(() => {
     debug('onReady1', call)
     log("onReady()", { message: "EA is ready." });
     embedded_app.listen().then(() => {
@@ -32,7 +32,10 @@ embedded_app.onReady().then(() => {
         });
     });
 });
+}
 
+
+testcallshit();
 
 embedded_app.onReady().then(() => {
     debug('onReady2', call)
