@@ -1,6 +1,7 @@
 // Client ID for Webex Samples Github (Replace with your own for local development)
 const APP_CLIENT_ID =
-  "C54b07a2723a0ab16261de45f7631d8d343ee51ed7bed7f8d71d18e9e7cd0b110";
+"Y2lzY29zcGFyazovL3VzL0FQUExJQ0FUSU9OLzU5ZTZkNWRjLWMxMDItNGM3ZC1iNTZlLTBmYmIzYzhjNGVmMQ";
+  //"C54b07a2723a0ab16261de45f7631d8d343ee51ed7bed7f8d71d18e9e7cd0b110";
 
 /**
  * Button click handler for Login with Webex
