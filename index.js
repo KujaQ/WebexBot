@@ -14,16 +14,8 @@ function debug(key, value){
         .then(response => response.text())
         .then(response => console.log(JSON.stringify(response)));
 
-        testawait();
 };
 
-async function testawait(){
-await embedded_app.onReady().then(()=>{
-    debug('await', true);
-});
-};
-
-testawait();
 
 embedded_app.onReady().then(() => {
     debug('onReady1', call)
