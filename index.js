@@ -6,6 +6,17 @@ const app = new window.Webex.Application();
 app.onReady().then(() => {
   log("onReady()", { message: "host app is ready" });
 
+
+  embedded_app.listen().then(() => {
+    embedded_app.on("sidebar:callStateChanged", (call) => {
+        log("Call state changed. New call object:", call);
+        //handleCallStateChange(call);
+    });
+  });
+
+
+
+
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen().then(() => {
     app.on("application:displayContextChanged", (payload) =>
