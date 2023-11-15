@@ -19,7 +19,8 @@ function parseJwtFromURLHash() {
   let token = params.get("id_token");
 
 
-  log("toke", token);
+  log("token", params);
+
 
   if (!token) return;
 
