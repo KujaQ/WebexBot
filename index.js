@@ -17,7 +17,6 @@ app.onReady().then(() => {
       log("application:displayContextChanged", payload)
     );
 
-
     app.on("application:shareStateChanged", (payload) =>
       log("application:shareStateChanged", payload)
     );

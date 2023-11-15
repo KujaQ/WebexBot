@@ -25,11 +25,6 @@
   function handleDisplayAppInfo() {
     log("Webex Embedded App Application Object", app);
   }
-  
-
-
-
-
 
   
   /**
