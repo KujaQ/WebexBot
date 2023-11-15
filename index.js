@@ -7,14 +7,12 @@ app.onReady().then(() => {
   log("onReady()", { message: "host app is ready" });
 
 
-  embedded_app.listen().then(() => {
-    embedded_app.on("sidebar:callStateChanged", (call) => {
+  app.listen().then(() => {
+    app.on("sidebar:callStateChanged", (call) => {
         log("Call state changed. New call object:", call);
-        //handleCallStateChange(call);
+        //log("Call state changed. New call object:",{ message: "callstate was changed" });    
     });
   });
-
-
 
 
   // Listen and emit any events from the EmbeddedAppSDK
