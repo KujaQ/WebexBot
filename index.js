@@ -3,7 +3,7 @@ parseJwtFromURLHash();
 
 const app = new window.Webex.Application();
 //app = new window.webex.Application();
-//var sidebar, meetings;
+var sidebar, meetings;
 
 
 app.onReady().then(() => {
