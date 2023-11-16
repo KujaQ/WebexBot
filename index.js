@@ -1,7 +1,7 @@
 // Check URL Hash for Login with Webex Token
 parseJwtFromURLHash();
 
-const app = new window.webex.Application();
+const app = new window.Webex.Application();
 //app = new window.webex.Application();
 //var sidebar, meetings;
 
