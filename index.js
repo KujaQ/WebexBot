@@ -16,9 +16,8 @@ app.onReady().then(() => {
   .then(() => {
 
     log("Banan 4 scale", {message: "listener läuft"})
-    //handleGetSidebar();
-
-    app.on("sidebar:callStateChanged", (payload) =>{
+    
+    app.on("sidebar:callStateChanged", (payload) => {
       log("Call state changed. New call object:", payload)
     });
 
