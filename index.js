@@ -7,7 +7,7 @@ app.onReady().then(() => {
   log("onReady()", { message: "host app is ready" });
 
   // Listen and emit any events from the EmbeddedAppSDK
-  app.listen().then(() => {
+  // app.listen().then(() => {
 
     log("Banan 4 scale", {message: "listener läuft"})
 
@@ -32,7 +32,7 @@ app.onReady().then(() => {
       log("meeting:roleChanged", payload)
     );
     app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
-  });
+  // });
 });
 
 /**
