@@ -4,34 +4,41 @@ parseJwtFromURLHash();
 const app = new window.Webex.Application();
 
 app.onReady().then(() => {
-  log("onReady()", { message: "host app is ready 1" });
+  log("onReady()", { message: "host app is ready 2" });
 
   // Listen and emit any events from the EmbeddedAppSDK
   // app.listen().then(() => {
 
     log("Banan 4 scale", {message: "listener läuft"})
 
-    app.on("sidebar:callStateChanged", (payload) =>
-      log("Call state changed. New call object:", payload)
-    );
 
-    app.on("application:displayContextChanged", (payload) =>
-      log("application:displayContextChanged", payload)
-    );
+    const sidebar =  app.getSidebar();
+    const isBadgeSet =  sidebar.showBadge({
+      badgeType: 'count',
+      count: 100
+    });
 
-    app.on("application:shareStateChanged", (payload) =>
-      log("application:shareStateChanged", payload)
-    );
-    app.on("application:themeChanged", (payload) =>
-      log("application:themeChanged", payload)
-    );
-    app.on("meeting:infoChanged", (payload) =>
-      log("meeting:infoChanged", payload)
-    );
-    app.on("meeting:roleChanged", (payload) =>
-      log("meeting:roleChanged", payload)
-    );
-    app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
+    // app.on("sidebar:callStateChanged", (payload) =>
+    //   log("Call state changed. New call object:", payload)
+    // );
+
+    // app.on("application:displayContextChanged", (payload) =>
+    //   log("application:displayContextChanged", payload)
+    // );
+
+    // app.on("application:shareStateChanged", (payload) =>
+    //   log("application:shareStateChanged", payload)
+    // );
+    // app.on("application:themeChanged", (payload) =>
+    //   log("application:themeChanged", payload)
+    // );
+    // app.on("meeting:infoChanged", (payload) =>
+    //   log("meeting:infoChanged", payload)
+    // );
+    // app.on("meeting:roleChanged", (payload) =>
+    //   log("meeting:roleChanged", payload)
+    // );
+    // app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
   // });
 });
 
