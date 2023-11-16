@@ -3,10 +3,10 @@ parseJwtFromURLHash();
 
 const app = new window.webex.Application();
 
-await app.onReady().then(() => {
+app.onReady().then(() => {
   log("onReady()", { message: "host app is ready" });
 
-  const sidebar = await app.context.getSidebar();
+  const sidebar = app.context.getSidebar();
 
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen()
