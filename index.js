@@ -9,8 +9,6 @@ var sidebar, meetings;
 app.onReady().then(() => {
   log("onReady()", { message: "host app is ready smi 2" });
 
-  //const sidebar = app.context.getSidebar();
-
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen()
   .then(() => {
