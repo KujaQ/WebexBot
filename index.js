@@ -120,7 +120,7 @@ async function handleClearPresentationUrl() {
 /**
  * get the sideBar
  */
-async function handleGetSidebar() {
+function handleGetSidebar() {
   app.context
     .getSidebar()
     .then((s) => {
