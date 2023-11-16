@@ -4,7 +4,7 @@ parseJwtFromURLHash();
 const app = new window.Webex.Application();
 
 app.onReady().then(() => {
-  log("onReady()", { message: "host app is ready" });
+  log("onReady()", { message: "host app is ready 1" });
 
   // Listen and emit any events from the EmbeddedAppSDK
   // app.listen().then(() => {
