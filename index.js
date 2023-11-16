@@ -7,7 +7,7 @@ var sidebar, meetings;
 
 
 app.onReady().then(() => {
-  log("onReady()", { message: "host app is ready smi 1" });
+  log("onReady()", { message: "host app is ready smi 2" });
 
   //const sidebar = app.context.getSidebar();
 
@@ -15,12 +15,12 @@ app.onReady().then(() => {
   app.listen()
   .then(() => {
 
-    log("Banan 4 scale", {message: "listener läuft 1"})
-    handleGetSidebar();
+    log("Banan 4 scale", {message: "listener läuft"})
+    //handleGetSidebar();
 
-    app.on('sidebar:callStateChanged', (payload) =>
+    app.on('sidebar:callStateChanged', (payload) =>{
       log("Call state changed. New call object:", payload)
-    );
+    });
 
   })
   .catch((reason) => {
