@@ -1,13 +1,16 @@
 // Check URL Hash for Login with Webex Token
 parseJwtFromURLHash();
 
-const app = new window.Webex.Application();
+const app = new window.webex.Application();
 
-app.onReady().then(() => {
+await app.onReady().then(() => {
   log("onReady()", { message: "host app is ready" });
 
+  const sidebar = await app.context.getSidebar();
+
   // Listen and emit any events from the EmbeddedAppSDK
-  app.listen().then(() => {
+  app.listen()
+  .then(() => {
 
     log("Banan 4 scale", {message: "listener läuft"})
 
@@ -32,7 +35,11 @@ app.onReady().then(() => {
       log("meeting:roleChanged", payload)
     );
     app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
+  })
+  .catch((reason) => {
+    console.error("listen: fail reason=" + webex.Application.ErrorCodes[reason]);
   });
+
 });
 
 /**
