@@ -36,7 +36,7 @@ const bearerToken = 'NTcxMTNmMmItNzEzMC00MzY1LWE5MzctZTNkZDg3ZDc4MjVjZGFjYzY2MzE
   /**
    * Calls and logs the user data from `app.context.getUser()`
    */
-  function handleGetUser() {
+   function handleGetUser() {
     app.context
       .getUser()
       .then((u) => {
@@ -48,37 +48,50 @@ const bearerToken = 'NTcxMTNmMmItNzEzMC00MzY1LWE5MzctZTNkZDg3ZDc4MjVjZGFjYzY2MzE
           Webex.Application.ErrorCodes[error]
         );
       });
-
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${bearerToken}`,
-          'Content-Type': 'application/json',
-          // Add any other headers if needed
-        },
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Handle the response data
-          log(
-            "fetchcalls()",
-            response.json()
-          );
-          console.log(data);
-        })
-        .catch(error => {
-          // Handle errors
-          console.error('Fetch error:', error);
-        });
-
-      app.context
-      .get
   }
+  // function handleGetUser() {
+  //   app.context
+  //     .getUser()
+  //     .then((u) => {
+  //       log("getUser()", u);
+  //     })
+  //     .catch((error) => {
+  //       log(
+  //         "getUser() promise failed with error",
+  //         Webex.Application.ErrorCodes[error]
+  //       );
+  //     });
+
+  //     fetch(url, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Authorization': `Bearer ${bearerToken}`,
+  //         'Content-Type': 'application/json',
+  //         // Add any other headers if needed
+  //       },
+  //     })
+  //       .then(response => {
+  //         if (!response.ok) {
+  //           throw new Error(`HTTP error! Status: ${response.status}`);
+  //         }
+  //         return response.json();
+  //       })
+  //       .then(data => {
+  //         // Handle the response data
+  //         log(
+  //           "fetchcalls()",
+  //           response.json()
+  //         );
+  //         console.log(data);
+  //       })
+  //       .catch(error => {
+  //         // Handle errors
+  //         console.error('Fetch error:', error);
+  //       });
+
+  //     app.context
+  //     .get
+  // }
   
   /**
    * Calls and logs the meeting data from `app.context.getMeeting()`

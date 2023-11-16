@@ -1,12 +1,15 @@
 // Check URL Hash for Login with Webex Token
 parseJwtFromURLHash();
 
-const app = new window.webex.Application();
+//const app = new window.webex.Application();
+app = new window.webex.Application();
+var sidebar, meetings;
+
 
 app.onReady().then(() => {
-  log("onReady()", { message: "host app is ready" });
+  log("onReady()", { message: "host app is ready smi 1" });
 
-  const sidebar = app.context.getSidebar();
+  //const sidebar = app.context.getSidebar();
 
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen()
@@ -18,23 +21,6 @@ app.onReady().then(() => {
       log("Call state changed. New call object:", payload)
     );
 
-    app.on("application:displayContextChanged", (payload) =>
-      log("application:displayContextChanged", payload)
-    );
-
-    app.on("application:shareStateChanged", (payload) =>
-      log("application:shareStateChanged", payload)
-    );
-    app.on("application:themeChanged", (payload) =>
-      log("application:themeChanged", payload)
-    );
-    app.on("meeting:infoChanged", (payload) =>
-      log("meeting:infoChanged", payload)
-    );
-    app.on("meeting:roleChanged", (payload) =>
-      log("meeting:roleChanged", payload)
-    );
-    app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
   })
   .catch((reason) => {
     console.error("listen: fail reason=" + webex.Application.ErrorCodes[reason]);
@@ -126,6 +112,28 @@ async function handleClearPresentationUrl() {
       log(
         "clearPresentationUrl() failed with error",
         Webex.Application.ErrorCodes[error]
+      );
+    });
+}
+
+
+/**
+ * get the sideBar
+ */
+async function handleGetSidebar() {
+  app.context
+    .getSidebar()
+    .then((s) => {
+      sidebar = s;
+      for (let buttons in sidebarButtons) {
+        sidebarButtons[buttons].removeAttribute("disabled");
+      }
+      log("getSidebar()", s.badge);
+    })
+    .catch((error) => {
+      log(
+        "getSidebar() promise failed with error",
+        webex.Application.ErrorCodes[error]
       );
     });
 }
