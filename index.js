@@ -2,8 +2,6 @@
 parseJwtFromURLHash();
 
 const app = new window.webex.Application();
-
-var test = new inter
 //app = new window.webex.Application();
 var sidebar, meetings;
 
